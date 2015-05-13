@@ -1,14 +1,15 @@
 var GraphicsSystem = function(entities) {
-	this.entities = entities;
-	this.canvas = document.getElementById('main-canvas');
-	this.context = this.canvas.getContext('2d');
+    this.entities = entities;
+    // Canvas is where we draw
+    this.canvas = document.getElementById('main-canvas');
+    // Context is what we draw to
+    this.context = this.canvas.getContext('2d');
 };
 
 GraphicsSystem.prototype.run = function() {
-	// Run the render loop
-	window.requestAnimationFrame(this.tick.bind(this));
-
-	// Continue the render loop
+    // Run the render loop
+    window.requestAnimationFrame(this.tick.bind(this));
+    // Continue the render loop
     window.requestAnimationFrame(this.tick.bind(this));
 };
 

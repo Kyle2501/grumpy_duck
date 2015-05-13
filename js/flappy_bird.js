@@ -1,24 +1,21 @@
-var graphicsSystem = require('./systems/graphics.js');
-var bird = require('./entities/Bird.js');
-var pipe = require('./entities/Pipe.js');
+var graphicsSystem = require('./systems/graphics');
+var physicsSystem = require('./systems/physics');
+var inputSystem = require('./systems/input');
 
-var FlappyBird = function () {
-	this.entities = [new bird.Bird()];
-	this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
+var bird = require('./entities/bird');
+var pipe = require('./entities/pipe');
+
+var FlappyBird = function() {
+    this.entities = [new bird.Bird(), new pipe.Pipe()]; 
+    this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
+    this.physics = new physicsSystem.PhysicsSystem(this.entities);
+    this.input = new inputSystem.InputSystem(this.entities);
 };
 
-var ThePipes = function () {
-	this.entities = [new pipe.Pipe()];
-	this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
-};
-
-FlappyBird.prototype.run = function () {
-	this.graphics.run();
-};
-
-ThePipes.prototype.run = function () {
-	this.graphics.run();
+FlappyBird.prototype.run = function() {
+    this.graphics.run();
+    this.physics.run();
+    this.input.run();
 };
 
 exports.FlappyBird = FlappyBird;
-exports.ThePipes = ThePipes;
