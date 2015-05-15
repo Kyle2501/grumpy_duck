@@ -1,17 +1,21 @@
-var PipeGraphicsComponent = function(entity) {
+
+
+var PipeGraphicsComponent = function(entity, size) {
     this.entity = entity;
+    this.size = size;
 };
 
 PipeGraphicsComponent.prototype.draw = function(context) {
-    var position = {x: 0.5, y: 0.5};
-
+    
+    var position = this.entity.components.physics.position;
     context.save();
     context.translate(position.x, position.y);
+
     context.beginPath();
-    context.fillStyle = "#FF9497";
-    context.arc(0, 0, 0.02, 0, 2 * Math.PI);
-    context.fill();
+    context.fillStyle = "#89898A";
+    context.fillRect(-this.size.x / 2, -this.size.y / 2, this.size.x, this.size.y);
     context.closePath();
+
     context.restore();
 };
 
