@@ -1,6 +1,11 @@
-var flappyBird = require('./flappy_bird');
+var grumpyDuck = require('./grumpy_duck');
+var bird = require('./entities/bird');
 
 document.addEventListener('DOMContentLoaded', function() {
-    var appBird = new flappyBird.FlappyBird();
-    appBird.run();
+    var appDuck = new grumpyDuck.GrumpyDuck();
+    appDuck.run();
 });
+
+bird.Bird.prototype.onCollision = function() {
+    console.log('wow');
+};

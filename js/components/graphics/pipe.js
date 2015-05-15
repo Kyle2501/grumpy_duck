@@ -1,5 +1,3 @@
-
-
 var PipeGraphicsComponent = function(entity, size) {
     this.entity = entity;
     this.size = size;
