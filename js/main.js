@@ -1,11 +1,26 @@
-var grumpyDuck = require('./grumpy_duck');
-var bird = require('./entities/bird');
+$(document).ready(function() {	
+	var grumpyDuck = require('./grumpy_duck');
+	var bird = require('./entities/bird');
 
-document.addEventListener('DOMContentLoaded', function() {
-    var appDuck = new grumpyDuck.GrumpyDuck();
-    appDuck.run();
+	var app = new grumpyDuck.GrumpyDuck();
+	app.init();  
+
+	$('#reset').hide();  
+
+	$('.init').click(function() {
+		app.run();
+		$('.init').hide();
+	});
+
+	$('#resetBtn').click(function () {
+		$('#reset').hide();
+		location.reload();
+	}); 
+
+	$('body').keydown(function () {
+		app.pause();
+		$('.init').show();
+	});
 });
 
-bird.Bird.prototype.onCollision = function() {
-    console.log('wow');
-};
+

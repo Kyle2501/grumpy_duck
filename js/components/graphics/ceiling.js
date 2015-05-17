@@ -9,7 +9,7 @@ CeilingGraphicsComponent.prototype.draw = function(context) {
     context.translate(position.x, position.y);
 
     context.beginPath();
-    context.fillStyle = "#000000";
+    context.fillStyle = "#A8DAFF";
     context.fillRect(0, 0, this.entity.size.x, this.entity.size.y);
     context.closePath();
 

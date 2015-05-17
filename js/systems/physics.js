@@ -3,12 +3,22 @@ var collisionSystem = require("./collision");
 var PhysicsSystem = function(entities) {
     this.entities = entities;
     this.collisionSystem = new collisionSystem.CollisionSystem(entities);
+    this.interval = null;
 };
 
 PhysicsSystem.prototype.run = function() {
     // Run the update loop
-    window.setInterval(this.tick.bind(this), 1000 /60);
+    this.interval = window.setInterval(this.tick.bind(this), 1000 /60);
+
 };
+
+PhysicsSystem.prototype.pause = function () {
+    if (this.interval != null) {
+        window.clearInterval(this.interval);
+        this.interval = null;
+    }
+};
+
 
 PhysicsSystem.prototype.tick = function() {
     for (var i=0; i<this.entities.length; i++) {

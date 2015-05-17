@@ -8,9 +8,15 @@ var PipeSystem = function(entities) {
 
 PipeSystem.prototype.run = function() {
     // Run the pipe creation interval
-    window.setInterval(this.tick.bind(this),
+    this.interval = window.setInterval(this.tick.bind(this),
                                        1000 * 2);
 };
+
+PipeSystem.prototype.pause = function () {
+    window.clearInterval(this.interval);
+    this.interval = null;   
+};
+
 
 PipeSystem.prototype.tick = function() {
 

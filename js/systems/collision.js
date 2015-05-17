@@ -1,5 +1,9 @@
+var bird = require('../entities/bird');
+
 var CollisionSystem = function(entities) {
     this.entities = entities;
+    this.graphicsSystem = null;
+    this.physicsSystem = null;
 };
 
 CollisionSystem.prototype.tick = function() {
@@ -21,6 +25,12 @@ CollisionSystem.prototype.tick = function() {
 
             if (entityA.components.collision.onCollision) {
                 entityA.components.collision.onCollision(entityB);
+                        
+                if (entityA instanceof bird.Bird) {
+                    this.graphicsSystem.pause();
+                    this.physicsSystem.pause();    
+                }
+                
             }
 
             if (entityB.components.collision.onCollision) {

@@ -3,11 +3,18 @@ var InputSystem = function(entities) {
 
     // Canvas is where we get input from
     this.canvas = document.getElementById('main-canvas');
+    this.clickListener = null;
 };
 
 InputSystem.prototype.run = function() {
-    this.canvas.addEventListener('click', this.flap.bind(this));
-    this.canvas.addEventListener('touchstart',  this.flap.bind(this));
+	this.clickListener = this.flap.bind(this);
+    this.canvas.addEventListener('click', this.clickListener);
+    this.canvas.addEventListener('touchstart',  this.clickListener);
+};
+
+InputSystem.prototype.pause = function() {
+    this.canvas.removeEventListener('click', this.clickListener);
+    this.clickListener = null;
 };
 
 InputSystem.prototype.flap = function() {

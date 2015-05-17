@@ -42,12 +42,15 @@ gulp.task('scripts', function() {
 
 // Watch task
 gulp.task('watch', function() {
-  gulp.watch('js/systems/*.js', ['jshint']);
+  gulp.watch(['js/**/**/*.js', 'js/**/*.js', 'js/*.js'], ['jshint']);
+  gulp.watch(['js/**/**/*.js', 'js/**/*.js', 'js/*.js'], ['scripts']);
+  gulp.watch('*.html', ['html']);
   gulp.watch('css/*.css', ['css']);
 });
 
 // Default task
-gulp.task('default', ['jshint', 'watch', 'css']);
+gulp.task('default', ['jshint', 'watch', 'html', 'scripts', 'css']);
 
-// Build task
-gulp.task('build', ['jshint', 'html', 'scripts', 'css']);
+
+
+
