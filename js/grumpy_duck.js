@@ -7,9 +7,10 @@ var collisionSystem = require('./systems/collision');
 var bird = require('./entities/bird');
 var floor = require('./entities/floor');
 var ceiling = require('./entities/ceiling');
+var scoreKeeper = require('./entities/scoreKeeper');
 
 var GrumpyDuck = function() {
-    this.entities = [new bird.Bird(), new floor.Floor(), new ceiling.Ceiling()]; 
+    this.entities = [new bird.Bird(), new floor.Floor(), new ceiling.Ceiling(), new scoreKeeper.ScoreKeeper()]; 
     this.graphics = new graphicsSystem.GraphicsSystem();
     this.physics = new physicsSystem.PhysicsSystem();
     this.input = new inputSystem.InputSystem();

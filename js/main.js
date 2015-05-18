@@ -6,10 +6,12 @@ $(document).ready(function() {
 	app.init();  
 
 	$('#reset').hide();  
+	$('#score').hide();
 
 	$('.init').click(function() {
 		app.run();
 		$('.init').hide();
+		$('#score').show();
 	});
 
 	$('#resetBtn').click(function () {
@@ -21,6 +23,8 @@ $(document).ready(function() {
 		app.pause();
 		$('.init').show();
 	});
+
+
 });
 
 
