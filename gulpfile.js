@@ -10,21 +10,21 @@ var minifyCSS = require('gulp-minify-css');
 
 // JavaScript hinting task
 gulp.task('jshint', function() {
-  return gulp.src('js/systems/*.js')
+  return gulp.src('site/js/systems/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 // Minify index
 gulp.task('html', function() {
-  gulp.src('index.html')
+  gulp.src('site/index.html')
     .pipe(minifyHTML())
     .pipe(gulp.dest('build/'));
 });
 
 // Minify CSS
 gulp.task('css', function() {
-  return gulp.src('css/main.css')
+  return gulp.src('site/css/main.css')
   .pipe(concat('site.css'))
   .pipe(minifyCSS())
   .pipe(gulp.dest('build/css'))
@@ -32,7 +32,7 @@ gulp.task('css', function() {
 
 // JavaScript build task, removes whitespace and concatenates all files
 gulp.task('scripts', function() {
-  return browserify('js/main.js')
+  return browserify('site/js/main.js')
     .bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
@@ -42,10 +42,10 @@ gulp.task('scripts', function() {
 
 // Watch task
 gulp.task('watch', function() {
-  gulp.watch(['js/**/**/*.js', 'js/**/*.js', 'js/*.js'], ['jshint']);
-  gulp.watch(['js/**/**/*.js', 'js/**/*.js', 'js/*.js'], ['scripts']);
-  gulp.watch('*.html', ['html']);
-  gulp.watch('css/*.css', ['css']);
+  gulp.watch(['site/js/**/**/*.js', 'site/js/**/*.js', 'site/js/*.js'], ['jshint']);
+  gulp.watch(['site/js/**/**/*.js', 'site/js/**/*.js', 'site/js/*.js'], ['scripts']);
+  gulp.watch('site/*.html', ['html']);
+  gulp.watch('site/css/*.css', ['css']);
 });
 
 // Default task
