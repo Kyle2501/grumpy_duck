@@ -69,11 +69,6 @@ canvas#main-canvas {
     line-height: 210%;
     text-align: center;
 }
-
-#logo {
-	width: 90%;
-}
-
 h1 {
 	margin-bottom: 70px;
 	text-align: center;
@@ -86,11 +81,6 @@ ul {
 	font-size: 1.2em;
 }
 
-p {
-	text-align: center;
-	font-size: 1.2em;
-}
-
 #resetBtn {
 	margin-top: 10px;
 	width: 70px;
@@ -99,9 +89,58 @@ p {
 .scoreWrap {
 	width: 100%;
 	position: absolute;
-	top: 200px;
+	top: 150px;
   	z-index: 10;
   	font-size: 5em;
 }
 
+@media only screen and (max-width:1635px) {
+	h1 {
+		font-size: 1.5em;
+	}
+
+	ul {
+		font-size: 1em;
+	}
+} 
+
+@media only screen and (max-width:1036px) {
+	.intro {
+		width: 100%;
+		height: 30%;
+	}
+
+	#reset {
+		width: 100%;
+		height: 25%;
+	}
+
+	.textWrap {
+		width: 90%;	   
+	    line-height: 120%;
+	}
+
+	h1 {
+		margin-bottom: 0px;
+	}
+
+} 
+
+@media only screen and (max-width:730px) {
+	.intro {
+		width: 100%;
+		height: 40%;
+	}
+
+	#reset {
+		width: 100%;
+		height: 30%;
+	}
+
+	#resetBtn {
+		margin-top: 10px;
+		width: 50px;
+	}
+
+} 
 
